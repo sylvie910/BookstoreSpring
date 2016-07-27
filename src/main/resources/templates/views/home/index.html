@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Home</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Bookstore</h1>
+        <p class="lead">Welcome to my bookstore!</p>
+        <p><a href="http://asp.net" class="btn btn-primary btn-lg">All Books &raquo;</a></p>
+    </div>
 
+    <div class="row">
+        <div class="col-md-4">
+            <!--TODO: 从model读取数据-->
+            <h2>小说</h2>
+            <!--TODO: 几本小说的list-->
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">更多 &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <!--TODO: 从model读取数据-->
+            <h2>计算机</h2>
+            <!--TODO: 几本计算机书的list-->
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">更多 &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <!--TODO: 从model读取数据-->
+            <h2>儿童读物</h2>
+            <!--TODO: 几本儿童读物的list-->
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">更多 &raquo;</a></p>
+        </div>
+    </div>
+</div>
 </body>
 </html>
