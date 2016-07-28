@@ -19,7 +19,7 @@
             <th>Book Id</th>
             <th>Book Name</th>
             <th>Price</th>
-            <th>Category</th>
+            <th>Edit</th>
         </tr>
         </thead>
         <tbody>
@@ -27,7 +27,9 @@
                 <td><a th:href="${book.id}" th:text="${book.id}"></a></td>
                 <td th:text="${book.name}"></td>
                 <td th:text="${book.price}"></td>
-                <td th:text="${book.categoryId}"></td>
+                <td>
+                    <a class="btn btn-warning" th:href="|/edit/${book.id}|">Edit</a>
+                </td>
             </tr>
         </tbody>
         <tfoot>

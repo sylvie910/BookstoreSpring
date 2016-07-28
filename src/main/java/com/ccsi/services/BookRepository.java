@@ -22,7 +22,7 @@ public class BookRepository {
         return em.createQuery("from Category").getResultList();
     }
 
-    public Book getSelectedBook(int bookId){
+    public Book getBookById(int bookId){
         List<Book> bookList= em.createQuery("from Book b where b.id=:id").setParameter("id", bookId).getResultList();
         return bookList.get(0);
     }
@@ -30,5 +30,27 @@ public class BookRepository {
     public List<Book> getSelectedCategoryBooks(int categoryId){
         List<Book> bookList=em.createQuery("from Book b where b.categoryId=:categoryId").setParameter("categoryId", categoryId).getResultList();
         return bookList;
+    }
+
+    public void updateBook(Book b){
+        em.getTransaction().begin();
+        Book book=this.getBookById(b.getId());
+        if(book!=null){
+            book.setName(b.getName());
+            book.setPrice(b.getPrice());
+            book.setCategoryId(b.getCategoryId());
+        }
+        em.getTransaction().commit();
+    }
+
+    public void saveBook(Book b){
+        em.getTransaction().begin();
+        Book book=new Book();
+        book.setName(b.getName());
+        book.setPrice(b.getPrice());
+        book.setCategoryId(b.getCategoryId());
+        book.setAvailability(b.getAvailability());
+        em.persist(book);
+        em.getTransaction().commit();
     }
 }

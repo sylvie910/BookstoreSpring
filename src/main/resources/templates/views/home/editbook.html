@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Add Book</title>
+    <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
@@ -13,19 +13,17 @@
 </head>
 <body>
 <div class="container">
-    <div class="panel panel-success">
-        <div class="panel-heading">Add Book</div>
+    <div class="panel panel-warning">
+        <div class="panel-heading">Edit Book</div>
         <div class="panel-body">
-            <form action="/addbook" th:object="${book}" method="post">
+            <form th:action="|/edit/${book.id}|" th:object="${book}" method="post">
                 <label>Book Name</label>
                 <input type="text" class="form-control" th:field="*{name}"/>
                 <label>Price</label>
                 <input type="text" class="form-control" th:field="*{price}"/>
                 <label>Category ID</label>
                 <input type="text" class="form-control" th:field="*{categoryId}"/>
-                <label>Availability</label>
-                <input type="text" class="form-control" th:field="*{availability}"/>
-                <input type="submit" th:value="Add"/>
+                <input type="submit" th:value="update"/>
             </form>
         </div>
     </div>
