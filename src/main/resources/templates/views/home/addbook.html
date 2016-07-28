@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Add Book</title>
@@ -16,19 +16,23 @@
     <div class="panel panel-success">
         <div class="panel-heading">Add Book</div>
         <div class="panel-body">
-            <div class="input-groups">
-                <label>BookName</label>
-                <input type="text" class="form-control"/>
-            </div>
-            <div class="input-groups">
-                <label>Price</label>
-                <input type="text" class="form-control"/>
-            </div>
-            <div class="input-groups">
-                <label>Category</label>
-                <!--TODO: category应该从下拉列表中选择-->
-                <input type="text" class="form-control"/>
-            </div>
+            <form action="/books"  method="post">
+                <label th:text="Book Name"></label>
+                <input type="text" class="form-control" />
+            </form>
+            <!--<div class="input-groups">-->
+                <!--<label>BookName</label>-->
+                <!--<input type="text" class="form-control"/>-->
+            <!--</div>-->
+            <!--<div class="input-groups">-->
+                <!--<label>Price</label>-->
+                <!--<input type="text" class="form-control"/>-->
+            <!--</div>-->
+            <!--<div class="input-groups">-->
+                <!--<label>Category</label>-->
+                <!--&lt;!&ndash;TODO: category应该从下拉列表中选择&ndash;&gt;-->
+                <!--<input type="text" class="form-control"/>-->
+            <!--</div>-->
         </div>
     </div>
 </div>

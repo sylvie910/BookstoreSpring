@@ -4,6 +4,7 @@ import com.ccsi.models.Book;
 import com.ccsi.models.Category;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,15 +27,17 @@ public class HomeController {
         return "/views/home/index";
     }
 
-    @RequestMapping(value = "/books", method = RequestMethod.GET)
+    @RequestMapping(value = "/books")
     public String bookList(Model vm) {
         List<Book> bookList = em.createQuery("from Book").getResultList();
         vm.addAttribute(bookList);
         return "/views/home/books";
     }
 
-    @RequestMapping(value = "/addbook", method = RequestMethod.GET)
-    public String addBook() {
+    @RequestMapping(value = "/addbook")
+    public String addBook(Model vm) {
+        List<Book> bookList = em.createQuery("from Book").getResultList();
+        vm.addAttribute(bookList);
         return "/views/home/addbook";
     }
 
@@ -43,5 +46,12 @@ public class HomeController {
         List<Book> bookList = em.createQuery("from Book b where b.categoryId=:categoryId").setParameter("categoryId", categoryId).getResultList();
         vm.addAttribute(bookList);
         return "views/home/book";
+    }
+
+    @RequestMapping(value = "/{id}")
+    public String bookDetail(@PathVariable(value = "id") int productId ,Model vm){
+        List<Book> bookList=em.createQuery("from Book b where b.id=:id").setParameter("id", productId).getResultList();
+        vm.addAttribute(bookList);
+        return "views/home/bookdetail";
     }
 }

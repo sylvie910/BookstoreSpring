@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>All Books</title>
+    <title>Book Detail</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
@@ -12,30 +12,10 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container ">
-    <table class="table">
-        <thead class="text-center">
-        <tr>
-            <th>Book Id</th>
-            <th>Book Name</th>
-            <th>Price</th>
-            <th>Category</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr th:each="book:${bookList}">
-                <td><a th:href="${book.id}" th:text="${book.id}"></a></td>
-                <td th:text="${book.name}"></td>
-                <td th:text="${book.price}"></td>
-                <td th:text="${book.categoryId}"></td>
-            </tr>
-        </tbody>
-        <tfoot>
-        <tr>
-            <td> <a href="/addbook" class="btn btn-primary">Add  books</a></td>
-        </tr>
-        </tfoot>
-    </table>
-</div>
+    <div class="container">
+        <h2 th:text="${bookList.get(0).name}"></h2>
+        <p class="lead" th:text="${bookList.get(0).price}"></p>
+
+    </div>
 </body>
 </html>
