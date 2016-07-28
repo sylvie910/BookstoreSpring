@@ -53,4 +53,10 @@ public class BookRepository {
         em.persist(book);
         em.getTransaction().commit();
     }
+
+    public void deleteBookById(int bookId){
+        em.getTransaction().begin();
+        em.remove(em.find(Book.class, bookId));
+        em.getTransaction().commit();
+    }
 }

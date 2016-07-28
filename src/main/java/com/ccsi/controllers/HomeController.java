@@ -70,4 +70,10 @@ public class HomeController {
         this.bookRepository.updateBook(book);
         return "/views/home/success";
     }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteBook(@PathVariable(value = "id") int bookId){
+        this.bookRepository.deleteBookById(bookId);
+        return "redirect:/books";
+    }
 }
